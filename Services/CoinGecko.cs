@@ -4,12 +4,12 @@ public class CoinGecko
 {
     private const string _coinGecko = "coinGecko";
 
-    private static readonly AppsettingsMonitor _config = Appsettings.OptionsMonitor.CurrentValue;
+    private static AppsettingsMonitor Config { get => Appsettings.OptionsMonitor.CurrentValue; }
 
     private static readonly IHttpClientBuilder _httpClientBuilder = new ServiceCollection()
         .AddHttpClient(_coinGecko, c =>
     {
-        c.BaseAddress = new Uri(_config.CoinGeckoUri);
+        c.BaseAddress = new Uri(Config.CoinGeckoUri);
     });
 
     private static readonly IHttpClientFactory _httpClientFactory = _httpClientBuilder
@@ -19,7 +19,7 @@ public class CoinGecko
 
     public async Task<List<CurrentCryptoState>> Get()
     {
-        var coins = _config.Coins;
+        var coins = Config.Coins;
 
         List<Crypto> _assets = new();
         foreach (Crypto coin in coins)
@@ -33,7 +33,7 @@ public class CoinGecko
             });
         }
 
-        string ids = _config.Ids;
+        string ids = Config.Ids;
         HttpClient client = _httpClientFactory.CreateClient(_coinGecko);
 
         try
