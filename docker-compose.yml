@@ -1,0 +1,18 @@
+﻿version: "3.7"
+services:
+  app:
+    container_name: telegram-app
+    image: mcr.microsoft.com/dotnet/sdk:6.0-focal
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    environment: 
+        - ASPNETCORE_URLS=http://+:80
+        - DOTNET_USE_POLLING_FILE_WATCHER=1
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8080:80"
+    # --disable-parallel
+    command: bash -c "dotnet restore && dotnet watch run --no-launch-profile"
