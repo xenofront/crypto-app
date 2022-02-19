@@ -30,7 +30,7 @@ public class CryptoBotController : ControllerBase
 
     [HttpGet]
     [Route("test")]
-    public async Task<string> Test()
+    public string Test()
     {
         return "Api works";
     }
