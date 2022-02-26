@@ -9,6 +9,7 @@ global using Telegram.Bot.Types;
 global using Telegram.Bot.Types.Enums;
 
 global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.Options;
 
 global using Newtonsoft.Json;
 

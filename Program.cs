@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Options;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder();
 
 builder.Services.AddControllers().AddNewtonsoftJson();

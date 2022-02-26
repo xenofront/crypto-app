@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-
-namespace CryptoApi.Options;
+﻿namespace CryptoApi.Options;
 
 public static class Appsettings
 {

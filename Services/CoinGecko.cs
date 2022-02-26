@@ -78,7 +78,7 @@ public class CoinGecko
 
             return currentCryptoState;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             throw;
         }
